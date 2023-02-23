@@ -1,7 +1,15 @@
+import os
+
+# install the libraries
+os.system('pip install googlemaps')
+os.system('pip install pandas')
+os.system('pip install requests')
+os.system('pip install datetime')
+
 import csv
 import datetime as datetime
 import json
-import os
+
 
 import googlemaps
 import pandas as pd
@@ -12,6 +20,7 @@ from googlemaps.directions import directions
 gmaps = googlemaps.Client(key='AIzaSyBv9OtDRp8LtBvNQUkuNyrhXjJf0IP-PvU')
 
 
+# add new row to the csv file
 def add_new_row(file_name, row):
     with open(file_name, 'a+', newline='') as write_obj:
         csv_writer = csv.writer(write_obj)
