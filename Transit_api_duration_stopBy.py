@@ -11,21 +11,6 @@ import pandas as pd
 crs = "+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
 
 
-# function get lat and long from api
-def lat_long_from_api(lat_x, long_x, lat_y, long_y):
-    response = requests.get("http://localhost:8080/otp/routers/default/plan",
-                            params={"fromPlace": f"{lat_x}, {long_x}",
-                                    "toPlace": f"{lat_y}, {long_y}",
-                                    "time": "now",
-                                    "date": "02-20-2023",
-                                    "mode": "TRANSIT,WALK",
-                                    "numItineraries": "1",
-                                    "arriveBy": "false",
-                                    "wheelchair": "false"})
-    data = json.loads(response.text)
-    print(data)
-    return data
-
 
 def add_new_row(file_name, row):
     with open(file_name, 'a', newline='') as write_obj:
